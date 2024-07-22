@@ -3,35 +3,41 @@
         <ul class="space-y-2 font-medium">
             <li>
                 <button type="button"
-                    class="flex items-center p-2 text-gray-900 group dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
-                    aria-controls="dropdown-example" data-collapse-toggle="dropdown-example">
-                    <span class="flex-1 ms-3 whitespace-nowrap">Pages</span>
+                    class="flex items-center p-2 w-full text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 justify-between"
+                    (click)="switchOpen()">
+                    <div class="flex">
+                        <img src="../../../assets/pages.svg" width="20" height="20" />
+                        <span class="ml-3">Pages</span>
+                    </div>
+
+                    <img [src]="!open ? '../../../assets/down_arrow.svg' : '../../../assets/up_arrow.svg'" width="20"
+                        height="20" />
                 </button>
-                <ul id="dropdown-example" class="hidden py-2 space-y-2">
+                <ul [ngClass]="open ? 'py-2 space-y-2' : 'hidden py-2 space-y-2'">
                     <li>
                         <a routerLink="/home"
-                            class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                            class="flex items-center p-2 pl-11 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
                             <img src="../../../assets/home.svg" width="22" height="22" />
                             <span class="ms-3">Home</span>
                         </a>
                     </li>
                     <li>
                         <a routerLink="/updates"
-                            class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                            class="flex items-center p-2 pl-11 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
                             <img src="../../../assets/update.svg" width="20" height="20" />
                             <span class="flex-1 ms-3 whitespace-nowrap">Updates</span>
                         </a>
                     </li>
                     <li>
                         <a routerLink="/settings"
-                            class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                            class="flex items-center p-2 pl-11 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
                             <img src="../../../assets/settings.svg" width="20" height="20" />
                             <span class="flex-1 ms-3 whitespace-nowrap">Settings</span>
                         </a>
                     </li>
                     <li>
                         <a routerLink="/gridview"
-                            class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                            class="flex items-center p-2 pl-11 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
                             <img src="../../../assets/grid.svg" width="20" height="20" />
                             <span class="ms-3">Grid view</span>
                         </a>
@@ -41,3 +47,5 @@
         </ul>
     </div>
 </aside>
+
+<script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
