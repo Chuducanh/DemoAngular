@@ -1,0 +1,79 @@
+<div class="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
+    <div class="w-full flex flex-row justify-between">
+        <h2 class="text-2xl font-bold tracking-tight text-gray-900">Product Management</h2>
+        <div class="flex flex-row">
+            <div Class="button_selected">
+                <img [src]="!isGridView ? '../../../assets/grid.svg' : '../../../assets/list.svg'" width="20"
+                    height="20" (click)="switchView()" class="cursor-pointer" />
+            </div>
+        </div>
+    </div>
+
+
+    <div [ngClass]="isGridView ? 'grid_view' : 'list_view'">
+        <div *ngFor="let product of products | paginate: { itemsPerPage: 9, currentPage: p }" class="group relative">
+            <div [ngClass]="!isGridView ? 'grid grid-cols-2' : ''">
+                <div
+                    class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
+                    <img src={{product.image}} class="h-full w-full object-cover object-center lg:h-full lg:w-full">
+                </div>
+                <div *ngIf="isGridView" class="mt-4 flex justify-between">
+                    <div>
+                        <h3 class="text-sm text-gray-700 cursor-pointer" (mouseover)="product.name.length >= 20 ? onHover(product.name, $event) : ''"
+                            (mouseout)="onMouseout()">
+                            {{ product.name | slice:0:20 }}<span *ngIf="product.name.length >= 20">...</span>
+                        </h3>
+
+                        <p class="mt-1 text-sm text-gray-500">{{product.color}}</p>
+                    </div>
+                    <div>
+                        <p class="text-sm font-medium text-gray-900">{{product.price}}</p>
+                        <div class="flex flex-row space-x-2 align-middle justify-center mt-2">
+                            <img src="../../../assets/edit.svg" width="20" height="20"
+                                class="cursor-pointer hover:bg-slate-200 rounded-sm" />
+                            <img src="../../../assets/trash.svg" width="20" height="20"
+                                class="cursor-pointer hover:bg-slate-200 rounded-sm" />
+                        </div>
+                    </div>
+                </div>
+                <div *ngIf="!isGridView" class="mt-4 ml-4">
+                    <h3 class="text-lg text-gray-700"> Name: {{product.name}} </h3>
+                    <p class="mt-5 text-lg text-gray-500">Color: {{product.color}}</p>
+                    <p class="mt-5 text-lg font-medium text-gray-900">Price: {{product.price}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <app-tooltip [showsTooltip]="showsTooltip" [tooltipText]="tooltipText" [topPosition]="topPosition"
+        [leftPosition]="leftPosition">
+    </app-tooltip>
+    <div class="w-full mt-10 flex flex-row justify-center">
+        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    </div>
+
+    <!-- <div id="info-popup" tabindex="-1"
+        class="overflow-y-auto overflow-x-hidden fixed top-3/4 z-50 w-full md:inset-0 h-modal md:h-full">
+        <div class="relative p-4 w-full max-w-lg h-full md:h-auto">
+            <div class="relative p-4 bg-white rounded-lg shadow dark:bg-gray-800 md:p-8">
+                <div class="mb-4 text-sm font-light text-gray-500 dark:text-gray-400">
+                    <h3 class="mb-3 text-2xl font-bold text-gray-900 dark:text-white">Privacy info</h3>
+                    <p>
+                        The backup created with this export functionnality may contain some sensitive data. We suggest
+                        you to save this archive in a securised location.
+                    </p>
+                </div>
+                <div class="justify-between items-center pt-0 space-y-4 sm:flex sm:space-y-0">
+                    <a href="#" class="font-medium text-primary-600 dark:text-primary-500 hover:underline">Learn more
+                        about privacy</a>
+                    <div class="items-center space-y-4 sm:space-x-4 sm:flex sm:space-y-0">
+                        <button id="close-modal" type="button"
+                            class="py-2 px-4 w-full text-sm font-medium text-gray-500 bg-white rounded-lg border border-gray-200 sm:w-auto hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-primary-300 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">Cancel</button>
+                        <button id="confirm-button" type="button"
+                            class="py-2 px-4 w-full text-sm font-medium text-center text-white rounded-lg bg-primary-700 sm:w-auto hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Confirm</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+</div>

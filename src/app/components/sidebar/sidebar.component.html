@@ -1,0 +1,43 @@
+<aside id="default-sidebar" class="fixed w-64 h-screen" aria-label="Sidebar">
+    <div class="h-full px-3 py-4 overflow-y-auto">
+        <ul class="space-y-2 font-medium">
+            <li>
+                <button type="button"
+                    class="flex items-center p-2 text-gray-900 group dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+                    aria-controls="dropdown-example" data-collapse-toggle="dropdown-example">
+                    <span class="flex-1 ms-3 whitespace-nowrap">Pages</span>
+                </button>
+                <ul id="dropdown-example" class="hidden py-2 space-y-2">
+                    <li>
+                        <a routerLink="/home"
+                            class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                            <img src="../../../assets/home.svg" width="22" height="22" />
+                            <span class="ms-3">Home</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a routerLink="/updates"
+                            class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                            <img src="../../../assets/update.svg" width="20" height="20" />
+                            <span class="flex-1 ms-3 whitespace-nowrap">Updates</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a routerLink="/settings"
+                            class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                            <img src="../../../assets/settings.svg" width="20" height="20" />
+                            <span class="flex-1 ms-3 whitespace-nowrap">Settings</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a routerLink="/gridview"
+                            class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                            <img src="../../../assets/grid.svg" width="20" height="20" />
+                            <span class="ms-3">Grid view</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</aside>

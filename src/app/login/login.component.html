@@ -1,0 +1,71 @@
+<div class="flex flex-row w-full">
+    <div class="flex flex-col w-1/2 justify-center items-center">
+        <div class="w-1/2">
+            <div>
+                <p class="title">WELCOME BACK</p>
+                <p class="sub_title">Welcome back! Please enter your details.</p>
+            </div>
+            <form [formGroup]="loginForm" (ngSubmit)="login(loginForm)">
+                <div class="flex flex-col my-6">
+                    <p class="label_form mb-2">Email</p>
+                    <input formControlName="email" class="input_form py-2 px-3" placeholder="Enter your email"
+                        type="email" (blur)="onBlur()" (focus)="onFocus()" />
+                    <div
+                        *ngIf="loginForm.controls['email'].invalid && (!isFocused && loginForm.controls['email'].touched)">
+                        <p *ngIf=" loginForm.controls['email'].errors?.['required']" class="text-red-500">
+                            Email is required.
+                        </p>
+                        <p *ngIf=" loginForm.controls['email'].errors?.['email']" class="text-red-500">
+                            Wrong email format.
+                        </p>
+                    </div>
+
+                </div>
+                <div class="flex flex-col my-6">
+                    <p class="label_form mb-2">Password</p>
+                    <input formControlName="password" class="input_form py-2 px-3" placeholder="Enter your password"
+                        type="password" (blur)="onBlur()" (focus)="onFocus()"/>
+                    <div
+                        *ngIf="loginForm.controls['password'].invalid && (!isFocused && loginForm.controls['password'].touched)">
+                        <p *ngIf=" loginForm.controls['password'].errors?.['required']" class="text-red-500">
+                            Password is required.
+                        </p>
+                        <p *ngIf=" loginForm.controls['password'].errors?.['pattern']" class="text-red-500">
+                            Password must contain one digit from 1 to 9, one lowercase letter, one uppercase letter, one
+                            special character, no space, and it must be 8-16 characters long.
+                        </p>
+                    </div>
+                </div>
+                <div class="flex flex-col my-6">
+                    <div class="flex flex-row justify-between">
+                        <div class="h-full flex flex-row">
+                            <div class="flex flex-col items-center justify-center">
+                                <input type="checkbox" />
+                            </div>
+                            <div class="flex flex-col items-center ml-3">
+                                <p class="remember_me">Remember me</p>
+                            </div>
+                        </div>
+                        <div class="flex flex-col items-center">
+                            <p class="remember_me">Forgot password</p>
+                        </div>
+                    </div>
+                    <button class="input_form py-2 px-3 mt-5 mb-2 font-semibold" type="submit"
+                        style="background: #EA454C; box-shadow: 0px 4px 10px 0px #E9444B40; color: white;">
+                        Sign in
+                    </button>
+                    <button class="input_form py-2 px-3 my-2 font-semibold" type="button"
+                        style="border: 1px solid #00000040; box-shadow: 0px 4px 10px 0px #00000040;">Sign in with
+                        Google</button>
+                </div>
+            </form>
+            <div>
+                <div class="flex flex-row justify-center">
+                    <p class="dont_have_account">Don’t have an account? &nbsp;</p>
+                    <p class="dont_have_account" style="color: red;">Sign up fo free!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <img src="../../assets/background.jfif" class="w-1/2 h-screen" />
+</div>

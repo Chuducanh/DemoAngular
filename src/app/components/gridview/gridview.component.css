@@ -1,0 +1,15 @@
+.grid_view {
+    @apply mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-8 w-full
+}
+
+.list_view {
+    @apply mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-1 xl:gap-x-8 w-full
+}
+
+.button_selected {
+    @apply bg-slate-400 flex align-middle px-3 py-1 rounded-md
+}
+
+.button_grid_view {
+    @apply flex align-middle px-3 py-1 hover:bg-slate-200 rounded-md
+}
